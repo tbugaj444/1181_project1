@@ -16,15 +16,15 @@ public class Main {
     public static void main(String[] args) {
 
         RandomAccessFile file = ifFileExists();
-        try {
-            sizeOfFile = (int) file.length() / Food.sizeInBytes;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         boolean exit = true;
 
-        addItem(file);
+//        addItem(file);
+//        addItem(file);
+//        addItem(file);
+
+        deleteItem(file, 1);
 
 
 //        while(exit){
@@ -73,11 +73,11 @@ public class Main {
             System.out.println("file not found");
         } catch (IOException e) {
             e.printStackTrace();
-//        }finally{
-//            try {
-//                file.close();
-//            }catch(Exception e){
-//                e.printStackTrace();
+        }
+        try {
+            sizeOfFile = (int) file.length() / Food.sizeInBytes;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return file;
     }
@@ -158,7 +158,20 @@ public class Main {
         }
 
     }
-    //function to ADD
+    public static void deleteItem(RandomAccessFile file, int index){
+        int remaining = sizeOfFile -index;
+        try{
+            file = ifFileExists();
+            file.seek(index);
+            String temp = file.readLine();
+            file.seek(index-1);
+            file.writeBytes(temp);
+        } catch (IOException e) {
+            System.out.println("file is not open");
+            e.printStackTrace();
+        }
+
+    }
     //Function to Delete
     //Function to Search
     //Function Stats
