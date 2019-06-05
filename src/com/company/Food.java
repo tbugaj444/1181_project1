@@ -9,7 +9,7 @@ public class Food {
     private int calories;
 
     static final int sizeOfString = 16;
-    static final int sizeInBytes = (sizeOfString*2)+ (2*Double.BYTES)+Integer.BYTES;
+    static final int sizeInBytes = 42;
 
     public Food(String name, String expDate, double weight, int quant, int calories) throws Exception{
         setName(name);
@@ -34,10 +34,7 @@ public class Food {
         }
     }
 
-    public String getExpDate() {
-
-        return expDate;
-    }
+    public String getExpDate() { return expDate; }
 
     public void setExpDate(String expDate) throws Exception{
         expDate = String.format("%1$"+sizeOfString+"s",expDate);
@@ -49,25 +46,19 @@ public class Food {
 
     }
 
-    public double getWeight() {
-        return weight;
-    }
+    public double getWeight() { return weight; }
 
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public int getQuant() {
-        return quant;
-    }
+    public int getQuant() { return quant; }
 
     public void setQuant(int quant) {
         this.quant = quant;
     }
 
-    public int getCalories() {
-        return calories;
-    }
+    public int getCalories() { return calories; }
 
     public void setCalories(int calories) {
         this.calories = calories;
@@ -75,12 +66,7 @@ public class Food {
 
     @Override
     public String toString() {
-        return "Food{" +
-                "name='" + name + '\'' +
-                ", expDate='" + expDate + '\'' +
-                ", weight=" + weight +
-                ", quant=" + quant +
-                ", calories=" + calories +
-                '}';
+        return
+                name + expDate + weight + quant + calories;
     }
 }

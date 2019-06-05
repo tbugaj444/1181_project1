@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner in = new Scanner(System.in);
-    static int sizeOfFile;
+    static long sizeOfFile;
 
 
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class Main {
 
 
         boolean exit = true;
-
+//
 //        addItem(file);
 //        addItem(file);
 //        addItem(file);
@@ -40,6 +40,18 @@ public class Main {
 //        }
 
         //loop menu
+        try {
+            System.out.println(file.length());
+            System.out.println(sizeOfFile);
+            System.out.println(Food.sizeInBytes);
+            System.out.println(file.readUTF());
+            deleteItem(file, 1);
+            System.out.println(file.readUTF());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -75,7 +87,7 @@ public class Main {
             e.printStackTrace();
         }
         try {
-            sizeOfFile = (int) file.length() / Food.sizeInBytes;
+            sizeOfFile = file.length() / Food.sizeInBytes;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -143,10 +155,11 @@ public class Main {
         }catch(Exception e){
             System.out.println("something wrong");
         }
-
         try{
+            file = ifFileExists();
             file.seek(file.length());
             file.writeUTF(f.toString());
+
         }catch (IOException e){
             System.out.println("Failed to read/write");
         }finally {
@@ -159,12 +172,12 @@ public class Main {
 
     }
     public static void deleteItem(RandomAccessFile file, int index){
-        int remaining = sizeOfFile -index;
+       // int remaining = sizeOfFile -index;
         try{
             file = ifFileExists();
-            file.seek(index);
+            file.seek((long) index*Food.sizeInBytes);
             String temp = file.readLine();
-            file.seek(index-1);
+            file.setLength((long) index*Food.sizeInBytes-1*Food.sizeInBytes);
             file.writeBytes(temp);
         } catch (IOException e) {
             System.out.println("file is not open");
