@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee2e6ad2-6056-4faf-8d7a-83549441ec59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="225" column="24" selection-start-line="225" selection-start-column="20" selection-end-line="225" selection-end-column="24" />
+            <state relative-caret-position="40">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,13 +194,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>249</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>208</line>
+          <line>204</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -241,8 +231,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="225" column="24" selection-start-line="225" selection-start-column="20" selection-end-line="225" selection-end-column="24" />
+        <state relative-caret-position="40">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

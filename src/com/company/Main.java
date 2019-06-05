@@ -61,13 +61,10 @@ public class Main {
             }
 
         }
-
-
-
-    }
+  }
 
     private static int getOption() {
-        int temp = 0;
+        int temp;
         int choice = 0;
 
         while (choice == 0) {
@@ -105,7 +102,6 @@ public class Main {
         return file;
     }
 
-//}
     private static void addItem(RandomAccessFile file){
         System.out.println("Add Item:\n" +
                 "Enter the Name of the Food Item");
@@ -144,7 +140,7 @@ public class Main {
         }while(quant==0);
 
         System.out.println("How many Calories are they each?");
-        int cal =0;
+        int cal;
         do{
             try{
                 cal = Integer.parseInt(in.nextLine());
@@ -240,7 +236,6 @@ public class Main {
         return "Food not Found";
     }
     public static void stats(RandomAccessFile file){
-        String temp = null;
         double weight[] = new double[(int)sizeOfFile];
         int quant[] = new int[(int)sizeOfFile];
         int cal[] = new int[(int)sizeOfFile];
