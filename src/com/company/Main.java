@@ -24,7 +24,9 @@ public class Main {
 //        addItem(file);
 //        addItem(file);
 
-        deleteItem(file, 1);
+//        deleteItem(file, 1);
+        //System.out.println(searchItem(file, "ty3"));
+        stats(file);
 
 
 //        while(exit){
@@ -36,21 +38,20 @@ public class Main {
 //                    "5. View Items\n" +
 //                    "6. Exit\n");
 //            int choice = getOption();
-//
+
 //        }
 
-        //loop menu
-        try {
-            System.out.println(file.length());
-            System.out.println(sizeOfFile);
-            System.out.println(Food.sizeInBytes);
-            System.out.println(file.readUTF());
-            deleteItem(file, 1);
-            System.out.println(file.readUTF());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            System.out.println(file.length());
+//            System.out.println(sizeOfFile);
+//            System.out.println(Food.sizeInBytes);
+//            System.out.println(file.readUTF());
+//            deleteItem(file, 1);
+//            System.out.println(file.readUTF());
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
     }
@@ -182,10 +183,69 @@ public class Main {
         } catch (IOException e) {
             System.out.println("file is not open");
             e.printStackTrace();
+        }finally{
+            try{
+                file.close();
+            }catch (Exception e){
+                System.out.println("things are bad");
+            }
         }
 
     }
-    //Function to Delete
-    //Function to Search
+    public static String searchItem(RandomAccessFile file, String name){
+        String temp = null;
+        try{
+            file = ifFileExists();
+            for(int i = 0;i<sizeOfFile;i++){
+                try {
+                    temp = file.readUTF();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if(temp.substring(0, Food.sizeOfString).trim().equals(name)){
+                    return "Item found at Index "+(i+1);
+                }
+
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                file.close();
+            }catch (Exception e){
+                System.out.println("things are bad");
+            }
+        }
+        return "Food not Found";
+    }
+    public static void stats(RandomAccessFile file){
+        String temp = null;
+        double weight[] = new double[(int)sizeOfFile];
+        int quant[] = new int[(int)sizeOfFile];
+        int cal[] = new int[(int)sizeOfFile];
+
+        try{
+            file = ifFileExists();
+            for(int i = 0;i<sizeOfFile;i++){
+                int j = file.skipBytes(2+2*Food.sizeOfString);
+                System.out.println(file.getFilePointer());
+                weight[i] =file.readDouble();
+                quant[i] = file.readInt();
+                cal[i] = file.readInt();
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            try {
+                System.out.println(file.length());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+    }
+
     //Function Stats
+    //double weight int quant int calories
 }

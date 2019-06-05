@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee2e6ad2-6056-4faf-8d7a-83549441ec59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/META-INF/project1_1181_Bugaj.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/Food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/StringLengthException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project1_1181_Bugaj/com/company/StringLengthException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,11 +19,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2790">
-              <caret line="186" column="5" lean-forward="true" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
+            <state relative-caret-position="358">
+              <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -94,17 +96,6 @@
             <path>
               <item name="project1_1181_Bugaj" type="b2602c69:ProjectViewProjectNode" />
               <item name="project1_1181_Bugaj" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project1_1181_Bugaj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project1_1181_Bugaj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project1_1181_Bugaj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project1_1181_Bugaj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -175,7 +166,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3278867" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39760348" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39760348" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -198,17 +189,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>89</line>
+          <line>228</line>
           <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>173</line>
-          <properties class="com.company.Main" method="deleteItem">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -251,14 +234,14 @@
     <entry file="file://$PROJECT_DIR$/data.dat">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="258" lean-forward="true" selection-start-column="258" selection-end-column="258" />
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2790">
-          <caret line="186" column="5" lean-forward="true" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
+        <state relative-caret-position="358">
+          <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
