@@ -227,9 +227,10 @@ public class Main {
         try{
             file = ifFileExists();
             for(int i = 0;i<sizeOfFile;i++){
-                int j = file.skipBytes(2+2*Food.sizeOfString);
+                //int j = file.skipBytes(2*Food.sizeOfString);
+                file.seek(i*(Food.sizeInBytes)+(2*Food.sizeOfString));
                 System.out.println(file.getFilePointer());
-                weight[i] =file.readDouble();
+                weight[i] = file.readDouble();
                 quant[i] = file.readInt();
                 cal[i] = file.readInt();
             }
