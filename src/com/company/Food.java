@@ -9,7 +9,7 @@ public class Food {
     private int calories;
 
     static final int sizeOfString = 16;
-    static final int sizeInBytes = 42;
+    static final int sizeInBytes = 48;
 
     public Food(String name, String expDate, double weight, int quant, int calories) throws Exception{
         setName(name);
