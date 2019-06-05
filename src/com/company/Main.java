@@ -19,39 +19,49 @@ public class Main {
 
 
         boolean exit = true;
-//
-//        addItem(file);
-//        addItem(file);
-//        addItem(file);
-
-//        deleteItem(file, 1);
-        //System.out.println(searchItem(file, "ty3"));
-        stats(file);
 
 
-//        while(exit){
-//            System.out.println("Please enter the number of the option you wish to perform\n" +
-//                    "1. Add Item\n" +
-//                    "2. Delete Item\n" +
-//                    "3. Search Item\n" +
-//                    "4. Stats\n" +
-//                    "5. View Items\n" +
-//                    "6. Exit\n");
-//            int choice = getOption();
 
-//        }
+        while(exit){
+            System.out.println("Please enter the number of the option you wish to perform\n" +
+                    "1. Add Item\n" +
+                    "2. Delete Item\n" +
+                    "3. Search Item\n" +
+                    "4. Stats\n" +
+                    "5. View Items\n" +
+                    "6. Exit\n");
+            int choice = getOption();
+            switch (choice){
+                case(1):{
+                    addItem(file);
+                }break;
+                case(2):{
+                    System.out.println("Which number item do you want to delete?");
+                    int i = Integer.parseInt(in.nextLine());
+                    deleteItem(file, i);
+                }break;
+                case(3):{
+                    System.out.println("Enter the name of the food item you are looking for");
+                    String s = in.nextLine();
+                    System.out.println(searchItem(file, s));
+                }break;
+                case(4):{
+                    stats(file);
+                }break;
+                case(5):{
+                    printItems(file);
+                }break;
+                case(6):{
+                    exit =false;
+                }break;
+                default:{
+                    System.out.println("INVALID");
+                    exit = false;
+                }
+            }
 
-//        try {
-//            System.out.println(file.length());
-//            System.out.println(sizeOfFile);
-//            System.out.println(Food.sizeInBytes);
-//            System.out.println(file.readUTF());
-//            deleteItem(file, 1);
-//            System.out.println(file.readUTF());
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        }
+
 
 
     }
@@ -159,7 +169,11 @@ public class Main {
         try{
             file = ifFileExists();
             file.seek(file.length());
-            file.writeUTF(f.toString());
+            file.writeBytes(f.getName());
+            file.writeBytes(f.getExpDate());
+            file.writeDouble(f.getWeight());
+            file.writeInt(f.getQuant());
+            file.writeInt(f.getCalories());
 
         }catch (IOException e){
             System.out.println("Failed to read/write");
@@ -173,7 +187,6 @@ public class Main {
 
     }
     public static void deleteItem(RandomAccessFile file, int index){
-       // int remaining = sizeOfFile -index;
         try{
             file = ifFileExists();
             file.seek((long) index*Food.sizeInBytes);
@@ -194,16 +207,24 @@ public class Main {
     }
     public static String searchItem(RandomAccessFile file, String name){
         String temp = null;
+        byte arr[] = new byte[Food.sizeInBytes];
         try{
             file = ifFileExists();
             for(int i = 0;i<sizeOfFile;i++){
                 try {
-                    temp = file.readUTF();
+                    file.read(arr, 0, Food.sizeOfString);
+                    temp = new String(arr);
+                    file.seek((i+1)*Food.sizeInBytes);
+
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 if(temp.substring(0, Food.sizeOfString).trim().equals(name)){
-                    return "Item found at Index "+(i+1);
+                    file.seek(i*Food.sizeInBytes);
+                    file.read(arr, 0, Food.sizeInBytes);
+                    temp = new String(arr);
+                    return "Item found at Index "+(i+1)+" "+temp;
                 }
 
             }
@@ -227,15 +248,12 @@ public class Main {
         try{
             file = ifFileExists();
             for(int i = 0;i<sizeOfFile;i++){
-                //int j = file.skipBytes(2*Food.sizeOfString);
                 file.seek(i*(Food.sizeInBytes)+(2*Food.sizeOfString));
                 System.out.println(file.getFilePointer());
                 weight[i] = file.readDouble();
                 quant[i] = file.readInt();
                 cal[i] = file.readInt();
             }
-
-
         }catch (Exception e){
             e.printStackTrace();
             try {
@@ -243,10 +261,50 @@ public class Main {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+        }finally {
+            try{
+                file.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
+        double ttlweight = 0, avgweight =0,
+         avgcal =0, ttlquant =0;
+
+        for(int i =0;i<weight.length;i++){
+            ttlweight+=(weight[i]*quant[i]);
+            avgweight+=weight[i];
+            avgcal+=cal[i];
+            ttlquant+=quant[i];
+        }
+        avgcal/=cal.length;
+        avgweight/=weight.length;
+
+        System.out.printf("Data.dat Stats:\n" +
+                "Total weight of all food items: %.2f\n" +
+                "Average weight: %.2f\n" +
+                "Total amount of food items: %.1f\n" +
+                "Average Calorie count: %.1f\n", ttlweight, avgweight, ttlquant, avgcal);
 
     }
+    public static void printItems(RandomAccessFile file){
+        try{
+            file = ifFileExists();
 
-    //Function Stats
-    //double weight int quant int calories
+            for(int i =0;i<sizeOfFile;i++){
+                file.seek(i*Food.sizeInBytes);
+                byte [] arr = new byte[Food.sizeOfString];
+                file.read(arr, 0, Food.sizeOfString);
+                String name = new String(arr);
+                file.read(arr, 0, Food.sizeOfString);
+                String exp = new String(arr);
+                System.out.printf("Name: %s\texp Date: %s\tWeight: %.2f\tQuantity: %d\tCalories: %d\n",
+                        name.trim(), exp.trim(), file.readDouble(), file.readInt(), file.readInt());
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
